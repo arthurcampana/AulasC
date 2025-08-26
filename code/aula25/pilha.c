@@ -23,7 +23,7 @@ Stack* create_stack(int length){
 int push(Stack* stack, int value){
     if(stack){
         if(stack->length != stack->quantity){
-        stack->element[stack->quantity];
+        stack->element[stack->quantity] = value;
         stack->quantity++;
         return TRUE;
         }
