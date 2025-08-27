@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "fila.h"
+#include "aula25/fila.h"
 
 struct Queue_{
     int quantity;
@@ -17,7 +17,7 @@ Queue* create_queue(length){
     return queue;
 };
 
-Queue* add(Queue* queue,int value){
+int add(Queue* queue,int value){
     if(queue->quantity != queue->length){
         queue->element[queue->quantity] = value;
         queue->quantity++;
@@ -26,7 +26,7 @@ Queue* add(Queue* queue,int value){
     return 0;
 }
 
-Queue* next(Queue* queue,int* value){
+int next(Queue* queue,int* value){
     if(queue->quantity > 0){
         *value = queue->element[0]; 
         for(int i=1;i<queue->quantity;i++){
@@ -38,10 +38,26 @@ Queue* next(Queue* queue,int* value){
     return 0;
 }
 
-Queue* peek(Queue* queue,int* value){
+int peek(Queue* queue,int* value){
     if(queue->quantity > 0){
         *value = queue->element[0];
         return 1;
     }
     return 0;
+}
+
+int insertbegin(Queue* queue,int value){
+    if(queue->quantity < queue->length){
+        for(int i=queue->quantity - 1;i>0;i--){
+            queue->element[i+1] = queue->element[i];
+        }
+        queue->element[0] = value;
+        queue->quantity++;
+        return 1;
+    }
+    return 0;
+}
+
+void freequeue(Queue* queue){
+    free(queue);
 }
