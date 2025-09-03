@@ -85,8 +85,52 @@ int remove_tail(List* list,int* value){
     else return 0;
 }
 
-int remove_position(List* list, int position, int value){
-    if(list){
-        for(int i=list->quantity;i>=)
+int remove_position(List* list, int position, int* value){
+    if(!list){return 0;}
+    if(position == 1){
+        remove_head(list,value);
+        return 1;
     }
+    if(position == list->quantity){
+        remove_tail(list,value);
+        return 1;
+    }if(position > 1 && position < list->quantity) {
+        *value = list->element[position - 1];
+        for(int i = position; i < list->quantity; i++){
+            list->element[i - 1] = list->element[i];
+        }
+        list->quantity--;
+        return 1;
+        
+    } else return 0;
 }
+
+int get_head(List* list,int* value){
+    if(!list){return 0;}
+    if(list->quantity > 0){
+        *value = list->element[0];
+        return 1;
+    } else return 0;
+}
+
+int get_tail(List* list,int* value){
+    if(!list){return 0;}
+    if(list->quantity > 0){
+        *value = list->element[list->quantity -1];
+        return 1;
+    } else return 0;
+}
+
+int get_position(List* list,int position,int* value){
+    if(!list) return 0;
+    if(list->quantity>0){
+        *value = list->element[position - 1];
+        return 1;
+    } else return 0;
+}
+
+void free_list(List* list){
+    free(list->element);
+    free(list);
+}
+
