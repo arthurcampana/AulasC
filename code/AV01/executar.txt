@@ -1,0 +1,1 @@
+gcc code/AV01/avalia.c code/AV01/task.c code/AV01/sprint.c -o teste
