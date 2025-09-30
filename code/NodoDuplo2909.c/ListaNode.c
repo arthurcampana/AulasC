@@ -71,6 +71,30 @@ int inserir_posicao(List* list,int position,int value){
     }
 }
 
+int* remover_posicao(List* list,int position,int* value){
+    if(list == NULL) return NULL;
+    DoubleNode* cursor = list->start;
+    if(position == 1){
+        remover_inicio(list,value);
+        return 0;
+    }
+    for(int i=0; i < position - 1; i++){
+        cursor = get_next(cursor);
+        if(get_next(cursor) == NULL) return NULL;
+    }
+    *value = get_data(get_next(cursor));
+    if(get_next(cursor) == NULL){
+        remover_fim(list,value);
+        return 0;
+    }
+    DoubleNode* removed = cursor;
+    removed = get_next(removed);
+    set_next(cursor,get_next(removed));
+    set_previous(get_next(removed),cursor);
+    free(removed);
+    return valor;
+}
+
 int* remover_inicio(List* list,int* value){
     if(list == NULL) return 1;
     get_data(list->start,value);
