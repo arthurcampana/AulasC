@@ -1,3 +1,4 @@
 path D:\GCC_PASTA\gcc-12.5.0-gdb-16.3.90.20250511-binutils-2.44-mingw-w64-v12.0.0-ucrt\bin;%PATH%
 
 C:\Users\arthur_campana\Downloads\gcc-12.5.0-gdb-16.3.90.20250511-binutils-2.44-mingw-w64-v12.0.0-ucrt\bin - PC - 29 SALA F12
+C:\Users\arthur_campana\Downloads\gcc-15.2.0-gdb-16.3.90.20250511-binutils-2.45-mingw-w64-v13.0.0-ucrt\bin
