@@ -24,7 +24,6 @@ int add(Backlog* backlog,Task* task) {
 int del(Backlog* backlog){
     if(backlog && backlog->quantity > 0){
         free_task(backlog->element[backlog->quantity - 1]);
-        backlog->element[backlog->quantity - 1] = NULL;
         backlog->quantity--;
         return 1;
     } else return 0;
@@ -32,12 +31,11 @@ int del(Backlog* backlog){
 
 Task* next(Backlog* backlog){
     if(backlog->quantity == 0) return NULL;
-    if(backlog->quantity > 0){
+    if(backlog->quantity > 0 && backlog){
         Task* nextTask = backlog->element[0];
         for(int i=0;i < backlog->quantity - 1;i++){
             backlog->element[i] = backlog->element[i + 1];
         }
-        backlog->element[backlog->quantity - 1] = NULL;
         backlog->quantity--;
         return nextTask;
     } else return NULL;

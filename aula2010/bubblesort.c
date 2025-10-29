@@ -11,7 +11,7 @@ void bubbleSort(int vector[], int length){
             if(vector[j] > vector[j+1]){
                 tmp = vector[j];
                 vector[j] = vector[j+1];
-                vector[j+1] = vector[j];
+                vector[j+1] = tmp;
                 swap = TRUE;
             }
         } i++;
